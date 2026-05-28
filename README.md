@@ -3,6 +3,13 @@
 An AI-inspired cybersecurity web application built using **Java Spring Boot, React, and PostgreSQL** that helps users detect suspicious URLs and phishing emails using heuristic risk analysis, keyword-based threat detection, and cybersecurity-inspired scanning logic.
 
 ---
+# 🌐 Live Project
+
+🔗 Frontend:
+https://ai-phishing-detection-platform-8fwi.vercel.app/login
+
+🔗 Backend:
+https://ai-phishing-backend-1o8c.onrender.com
 
 # Features
 
