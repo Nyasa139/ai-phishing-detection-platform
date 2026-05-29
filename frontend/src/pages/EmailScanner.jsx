@@ -38,7 +38,8 @@ const EmailScanner = () => {
     try {
       await new Promise(r => setTimeout(r, 1500)); // smooth UI effect
       
-      const res = await API.post("/api/scan/email", { content });
+      const userEmail = localStorage.getItem("user");
+      const res = await API.post("/api/scan/email", { content, userEmail });
       setResult(res.data);
       toast.success("Analysis completed");
     } catch (error) {

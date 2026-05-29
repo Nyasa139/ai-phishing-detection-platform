@@ -40,6 +40,7 @@ history.setScanType("URL");
 history.setRiskLevel(status);
 history.setRiskScore(riskScore);
 history.setCreatedAt(LocalDateTime.now());
+history.setUserEmail(request.getUserEmail());
 
 scanHistoryRepository.save(history);
         return response;

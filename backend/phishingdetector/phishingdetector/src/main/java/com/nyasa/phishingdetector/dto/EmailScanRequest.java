@@ -2,6 +2,7 @@ package com.nyasa.phishingdetector.dto;
 
 public class EmailScanRequest {
     private String content;
+    private String userEmail;
 
     public EmailScanRequest() {}
 
@@ -11,5 +12,13 @@ public class EmailScanRequest {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

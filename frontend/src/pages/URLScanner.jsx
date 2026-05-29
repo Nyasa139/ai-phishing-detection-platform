@@ -39,7 +39,8 @@ const URLScanner = () => {
       // Simulate slightly longer processing to show the cool loading steps
       await new Promise(r => setTimeout(r, 1500));
       
-      const res = await API.post("/api/scan/url", { url });
+      const userEmail = localStorage.getItem("user");
+      const res = await API.post("/api/scan/url", { url, userEmail });
       setResult(res.data);
       toast.success("Scan completed successfully");
     } catch (error) {

@@ -5,10 +5,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.nyasa.phishingdetector.model.ScanHistory;
+import com.nyasa.phishingdetector.repository.ScanHistoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping("/api/scan")
 @CrossOrigin("*")
 public class EmailScanController {
+
+    @Autowired
+    private ScanHistoryRepository scanHistoryRepository;
 
     @PostMapping("/email")
     public Map<String, Object> scanEmail(@RequestBody EmailScanRequest request) {
@@ -27,6 +35,16 @@ public class EmailScanController {
         response.put("riskScore", riskScore);
         response.put("status", status);
         response.put("message", "Email analysis completed");
+
+        ScanHistory history = new ScanHistory();
+        history.setContent(request.getContent()); // Save original content, not lowercased
+        history.setScanType("Email");
+        history.setRiskLevel(status);
+        history.setRiskScore(riskScore);
+        history.setCreatedAt(LocalDateTime.now());
+        history.setUserEmail(request.getUserEmail());
+
+        scanHistoryRepository.save(history);
 
         return response;
     }

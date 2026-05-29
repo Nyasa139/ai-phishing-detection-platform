@@ -11,7 +11,8 @@ const History = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await API.get("/api/history");
+        const userEmail = localStorage.getItem("user");
+        const res = await API.get(`/api/history?userEmail=${encodeURIComponent(userEmail)}`);
         setHistory(res.data);
       } catch (error) {
         console.error("Failed to fetch history", error);

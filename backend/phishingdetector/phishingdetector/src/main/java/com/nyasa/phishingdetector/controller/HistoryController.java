@@ -16,7 +16,7 @@ public class HistoryController {
     private ScanHistoryRepository scanHistoryRepository;
 
     @GetMapping
-    public List<ScanHistory> getAllHistory() {
-        return scanHistoryRepository.findAll();
+    public List<ScanHistory> getHistory(@RequestParam String userEmail) {
+        return scanHistoryRepository.findByUserEmailOrderByIdDesc(userEmail);
     }
 }

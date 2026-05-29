@@ -16,6 +16,7 @@ public class ScanHistory {
     private String riskLevel;
     private Integer riskScore;
     private LocalDateTime createdAt;
+    private String userEmail;
 
     public ScanHistory() {}
 
@@ -35,4 +36,7 @@ public class ScanHistory {
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public String getUserEmail() { return userEmail; }
+    public void setUserEmail(String userEmail) { this.userEmail = userEmail; }
 }
